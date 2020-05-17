@@ -21,6 +21,6 @@ public class Employee extends Person {
      * @return employee information (Firstname: firstname Lastname: lastname Salary: salary)
      */
     public String showEmployeeInfo() {
-        return "Firstname: " this.getFirstName() + " Lastname: " + this.getLastName() + " Salary: " + this.salary;
+        return "Firstname: " + this.getFirstName() + " Lastname: " + this.getLastName() + " Salary: " + this.salary;
     }
 }
