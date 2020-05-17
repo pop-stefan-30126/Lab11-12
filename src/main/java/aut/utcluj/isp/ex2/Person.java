@@ -11,8 +11,7 @@ public class Person {
         this.lastName = "";
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
-    //todo
+    //aici a fost Stefan
 
     public Person(String firstName, String lastName) {
         throw new UnsupportedOperationException("Not supported yet.");
