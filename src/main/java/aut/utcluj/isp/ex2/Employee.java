@@ -9,6 +9,7 @@ public class Employee {
     public Employee(String firstName, String lastName, Double salary) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+    //si aici
 
     public Double getSalary() {
         return salary;
