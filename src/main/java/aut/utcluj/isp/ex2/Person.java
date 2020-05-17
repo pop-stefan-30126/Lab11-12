@@ -8,19 +8,19 @@ public class Person {
     private String lastName;
 
     public Person(String firstName) {
-        this.lastName = "";
-        throw new UnsupportedOperationException("Not supported yet.");
+        this.firstName = firstName;
     }
 
     public Person(String firstName, String lastName) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public String getFirstName() {
-        return firstName;
+        return this.firstName;
     }
 
     public String getLastName() {
-        return lastName;
+        return this.lastName;
     }
 }
