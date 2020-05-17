@@ -12,7 +12,7 @@ public class Person {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     //aici a fost Stefan
-
+    // imediat sa traiti!
     public Person(String firstName, String lastName) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
