@@ -4,7 +4,6 @@ package aut.utcluj.isp.ex1;
  * @author stefan
  */
 public class Person {
-    //Numele persoanei
     private String firstName;
     private String lastName;
 
