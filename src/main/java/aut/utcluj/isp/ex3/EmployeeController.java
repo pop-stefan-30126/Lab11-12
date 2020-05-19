@@ -1,5 +1,6 @@
 package aut.utcluj.isp.ex3;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -8,13 +9,24 @@ import java.util.List;
 public class EmployeeController {
     private List<Employee> employees;
 
+    EmployeeController() {
+        employees = new ArrayList<>();
+    }
+
     /**
      * Add new employee to the list of employees
      *
      * @param employee - employee information
      */
+
     public void addEmployee(final Employee employee) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if (employee != null)
+            if (!this.employees.contains(employee)) {
+                employees.add(employee);
+                System.out.println("Employee was added!");
+            } else {
+                System.out.println("Employee already exists!");
+            }
     }
 
     /**

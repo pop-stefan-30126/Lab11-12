@@ -1,5 +1,7 @@
 package aut.utcluj.isp.ex3;
 
+import java.util.Objects;
+
 /**
  * @author stefan
  */
@@ -30,5 +32,22 @@ public class Employee {
 
     public String getCnp() {
         return cnp;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee e = (Employee) o;
+        return Objects.equals(this.firstName, e.firstName) &&
+                Objects.equals(this.lastName, e.lastName) &&
+                Objects.equals(this.salary, e.salary) &&
+                Objects.equals(this.cnp, e.cnp);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, salary, cnp);
     }
 }
