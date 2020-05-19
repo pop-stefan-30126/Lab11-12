@@ -74,11 +74,4 @@ public class SalaryInfo {
         return monthlyRevenue;
     }
 
-    public void setMonthlyRevenue(Double monthlyRevenue) {
-        this.monthlyRevenue = monthlyRevenue;
-    }
-
-    public void setTotalRevenue(Double totalRevenue) {
-        this.totalRevenue = totalRevenue;
-    }
 }
