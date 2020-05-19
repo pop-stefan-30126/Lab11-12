@@ -6,6 +6,8 @@ import java.util.List;
  * @author stefan
  */
 public class EmployeeController {
+    private List<Employee> employees;
+
     /**
      * Add new employee to the list of employees
      *
@@ -52,7 +54,7 @@ public class EmployeeController {
      * @return current list of employees
      */
     public List<Employee> getEmployees() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return this.employees;
     }
 
     /**
@@ -61,6 +63,6 @@ public class EmployeeController {
      * @return - number of registered employees
      */
     public int getNumberOfEmployees() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return this.employees.size();
     }
 }
