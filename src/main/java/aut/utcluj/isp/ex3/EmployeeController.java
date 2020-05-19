@@ -36,8 +36,16 @@ public class EmployeeController {
      * @return found employee or null if not found
      */
     public Employee getEmployeeByCnp(final String cnp) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if (cnp != null) {
+            for (Employee e : this.employees) {
+                if (e.getCnp().equals(cnp))
+                    return e;
+            }
+        }
+        System.out.println("Operation failed!");
+        return null;
     }
+
 
     /**
      * Update employee salary by cnp
@@ -68,7 +76,17 @@ public class EmployeeController {
      * @return deleted employee or null if not found
      */
     public Employee deleteEmployeeByCnp(final String cnp) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if (cnp != null) {
+            for (Employee e : this.employees) {
+                if (e.getCnp().equals(cnp)) {
+                    this.employees.remove(e);
+                    return e;
+                }
+            }
+        }
+
+        System.out.println("Operation failed!");
+        return null;
     }
 
     /**
