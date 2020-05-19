@@ -34,6 +34,10 @@ public class Employee {
         return cnp;
     }
 
+    public void setSalary(Double salary) {
+        this.salary = salary;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

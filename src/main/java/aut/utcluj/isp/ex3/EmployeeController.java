@@ -47,7 +47,18 @@ public class EmployeeController {
      * @return updated employee
      */
     public Employee updateEmployeeSalaryByCnp(final String cnp, final Double salary) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if (cnp != null && salary != null) {
+            for (int i = 0; i < this.employees.size(); i++) {
+                if (this.employees.get(i).getCnp().equals(cnp)) {
+                    this.employees.get(i).setSalary(salary);
+                    return this.employees.get(i);
+                }
+            }
+        }
+        System.out.println("Operation failed!");
+        return null;
+
+
     }
 
     /**
