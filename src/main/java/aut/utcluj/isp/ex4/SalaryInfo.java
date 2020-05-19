@@ -9,7 +9,12 @@ public class SalaryInfo {
      *
      * @param monthlyRevenue
      */
-    public SalaryInfo(Double monthlyRevenue) {
+    public SalaryInfo(Double monthlyRevenue) throws
+    {
+
+        if(this.monthlyRevenue<0)
+            throw new NegativeAmountException("Monthly revenue cannot be neagtive");
+        else
         this.monthlyRevenue = monthlyRevenue;
     }
 
@@ -47,5 +52,13 @@ public class SalaryInfo {
 
     public Double getMonthlyRevenue() {
         return monthlyRevenue;
+    }
+
+    public void setMonthlyRevenue(Double monthlyRevenue) {
+        this.monthlyRevenue = monthlyRevenue;
+    }
+
+    public void setTotalRevenue(Double totalRevenue) {
+        this.totalRevenue = totalRevenue;
     }
 }
