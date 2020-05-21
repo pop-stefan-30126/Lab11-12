@@ -9,7 +9,7 @@ import java.util.List;
 public class EmployeeController {
     private List<Employee> employees;
 
-    EmployeeController() {
+    public EmployeeController() {
         employees = new ArrayList<>();
     }
 
