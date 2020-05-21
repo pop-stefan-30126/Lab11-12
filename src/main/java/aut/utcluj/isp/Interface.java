@@ -38,7 +38,10 @@ public class Interface extends JFrame {
         JButton deleteEmployee = new JButton("Delete");
         deleteEmployee.setBounds(280, 310, 150, 50);
 
+        JButton viewAllEmployees = new JButton("View employees");
+        viewAllEmployees.setBounds(280, 380, 150, 50);
 
+        panel01.add(viewAllEmployees);
         panel01.add(deleteEmployee);
         panel01.add(updateSlarry);
         panel01.add(addEmployee);
@@ -49,6 +52,90 @@ public class Interface extends JFrame {
         getEmployee.addActionListener(e -> buttonGetFunction());
         updateSlarry.addActionListener(e -> buttonUpdateFunctioN());
         deleteEmployee.addActionListener(e -> buttonDeleteFunction());
+        viewAllEmployees.addActionListener(e -> buttonViewFunction());
+    }
+
+    private void buttonViewFunction() {
+        panel01.setVisible(false);
+
+        JPanel panel05 = new JPanel();
+        JPanel panel06 = new JPanel();
+        panel06.setLayout(null);
+        panel06.setVisible(true);
+        panel05.setLayout(null);
+        panel05.setVisible(true);
+
+        JLabel textFirstName = new JLabel();
+        JLabel textLastName = new JLabel();
+        JLabel textCnp = new JLabel();
+        JLabel textSalary = new JLabel();
+
+        JList<String> employeesList;
+        DefaultListModel<String> model;
+
+        employeesList = new JList<>();
+        model = new DefaultListModel<>();
+
+        JSplitPane splitPane = new JSplitPane();
+
+        employeesList.setModel(model);
+        splitPane.setLeftComponent(new JScrollPane(employeesList));
+
+        splitPane.setBounds(0,20, 580, 300);
+        splitPane.setDividerLocation(100);
+        employeesList.setBounds(3, 23, 95, 294);
+        textFirstName.setBounds(5, 50, 150, 20);
+        textLastName.setBounds(5, 70, 150, 20);
+        textCnp.setBounds(5, 90, 150, 20);
+        textSalary.setBounds(5, 110, 200, 20);
+
+        JButton backButton = new JButton("Back");
+        backButton.setBounds(315, 367, 100, 25);
+
+        panel06.add(textFirstName);
+        panel06.add(textLastName);
+        panel06.add(textCnp);
+        panel06.add(textSalary);
+
+        splitPane.setRightComponent(panel06);
+
+        panel05.add(employeesList);
+        panel05.add(splitPane);
+        panel05.add(backButton);
+
+        if (this.employeeController.getEmployees() == null) {
+            JOptionPane.showMessageDialog(null, "There are no employees!");
+        } else {
+            for (Employee employee : this.employeeController.getEmployees()) {
+                model.addElement(employee.getFirstName() + " " + employee.getLastName());
+            }
+        }
+
+        employeesList.getSelectionModel().addListSelectionListener(e -> {
+            if (employeesList.getSelectedValue() != null) {
+                String[] splitName = employeesList.getSelectedValue().split(" ");
+
+                for (Employee employee : this.employeeController.getEmployees()) {
+                    if (employee.getFirstName().equals(splitName[0]) && employee.getLastName().equals(splitName[1])) {
+                        textFirstName.setText("First name: " + employee.getFirstName());
+                        textLastName.setText("Last name: " + employee.getLastName());
+                        textCnp.setText("Cnp: " + employee.getCnp());
+                        textSalary.setText("Salary: " + employee.getSalary());
+                    }
+                }
+            }
+        });
+
+        backButton.addActionListener(e -> {
+            panel05.setVisible(false);
+            panel06.setVisible(false);
+            panel01.setVisible(true);
+
+            model.clear();
+        });
+
+        frame.add(panel05);
+
     }
 
     private void buttonAddFunction() {
